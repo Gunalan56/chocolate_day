@@ -1,0 +1,135 @@
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Chocolate Day Saann</title>
+
+<style>
+/* FULL DARK CHOCOLATE BACKGROUND */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(circle, #1b0c05, #3e1f0d, #000000);
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Glowing Name */
+#name {
+    margin-top: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    color: pink;
+    text-shadow: 0 0 10px pink, 0 0 20px red;
+}
+
+/* Chocolate Button */
+#chocoBtn {
+    margin-top: 150px;
+    padding: 20px 50px;
+    font-size: 25px;
+    background: brown;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #3e1f0d;
+}
+
+#chocoBtn:active {
+    box-shadow: 0 2px 0 #3e1f0d;
+    transform: translateY(3px);
+}
+
+#message {
+    font-family: 'Georgia', serif;
+    font-size: 40px;
+    font-weight: bold;
+    background: linear-gradient(to right, gold, #ffcc00, gold);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255,215,0,0.7);
+    margin-top: 30px;
+    opacity: 0;
+}
+
+
+
+/* Chocolate Rain */
+.choco {
+    position: fixed;
+    top: -20px;
+    font-size: 25px;
+    animation: fall 4s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+/* Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 25px;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div id="name">HI SAANN ❤️</div>
+
+<button id="chocoBtn">Click Chocolate 🍫</button>
+
+<div id="message">Happy Chocolate Day Cutu Ma ❤️</div>
+
+<script>
+// Chocolate Rain
+function createChocolate() {
+    let c = document.createElement("div");
+    c.className = "choco";
+    c.innerHTML = "🍫";
+    c.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+}
+setInterval(createChocolate, 300);
+
+// Hearts
+function createHeart() {
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 5000);
+}
+setInterval(createHeart, 400);
+
+// Button Click
+document.getElementById("chocoBtn").onclick = function() {
+    let msg = document.getElementById("message");
+    msg.style.opacity = 1;
+    msg.innerHTML = " Happy Chocolate Day Cutu Ma ❤️<br>I Love You Saann 💕";
+};
+</script>
+
+</body>
+</html>
